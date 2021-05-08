@@ -19,8 +19,8 @@ const suspectSchema = new Schema({
   scars: { type: String, required: true },
   tattoos: { type: String, required: true },
   earShape: { type: String, required: true },
-  eyebrowsShape: { type: String, required: true },
-  noseShape: { type: String, required: true },
+  eyebrowsShape: { type: String, required: false },
+  noseShape: { type: String, required: false },
   race: { type: String, required: true },
   teethMissing: { type: String, required: false },
   wrinkles: { type: String, required: false },
@@ -33,7 +33,8 @@ const suspectSchema = new Schema({
 
   image: {
     data: Buffer,
-    contentType: String,
+    type: String,
+    required: true,
   },
 });
 const Suspect = mongoose.model("Suspect", suspectSchema);

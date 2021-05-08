@@ -3,7 +3,7 @@ const db = require("../models");
 
 // This file empties the Suspects collection and inserts the suspects below
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/suspects");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/suspects");
 
 const suspectSeed = [
   {
@@ -245,6 +245,21 @@ const suspectSeed = [
   {},
   {},
 ];
+
+const done = 0;
+for (var i = 0; i <  suspects.length; i++)
+{
+  suspects[i].save(function(err,result){
+    done++;
+    if(done === suspects.length) {
+      exit();
+    }
+  });
+}
+function exit() {
+  mongoose.disconnect();
+}
+
 
 db.Suspect.remove({})
   .then(() => db.Suspect.collection.insertMany(suspectSeed))

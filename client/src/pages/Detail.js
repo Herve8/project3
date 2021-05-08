@@ -9,12 +9,12 @@ function Detail(props) {
 
   // When this component mounts, grab the suspect with the _id of props.match.params.id
   // e.g. localhost:3000/suspects/599dcb67f0f16317844583fc
-  const { id } = useParams();
+  const { _id } = useParams();
   useEffect(() => {
-    API.getSuspect(id)
+    API.getSuspect(_id)
       .then((res) => setSuspect(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [_id]);
 
   return (
     <Container fluid>
@@ -27,14 +27,7 @@ function Detail(props) {
           </Jumbotron>
         </Col>
       </Row>
-      <Row>
-        <Col size="md-10 md-offset-1">
-          <article>
-            <h1>Synopsis</h1>
-            <p>{suspect.synopsis}</p>
-          </article>
-        </Col>
-      </Row>
+      
       <Row>
         <Col size="md-2">
           <Link to="/">← Back to Suspects</Link>
