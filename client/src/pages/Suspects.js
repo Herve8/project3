@@ -41,11 +41,11 @@ function Suspects() {
   // Then reload suspect from the database
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.title && formObject.author) {
+    if (formObject._id && formObject.image) {
       API.saveSuspect({
-        title: formObject.title,
-        author: formObject.author,
-        synopsis: formObject.synopsis,
+        _id: formObject._id,
+        image: formObject.image,
+      
       })
         .then((res) => loadSuspects())
         .catch((err) => console.log(err));
@@ -67,12 +67,13 @@ function Suspects() {
             </p>
           </Jumbotron>
           <form>
-            <Input
-              onChange={handleInputChange}
-              name="age"
-              placeholder="Age(required)"
-            />
-            <label for="sex">Select sex:</label>
+            
+            <label for="age">Age *:
+            onChange={handleInputChange}
+            placeholder="Age(required)"
+            </label>
+            
+            <label for="sex">Sex *</label>
             <select name="sex" id="sex">
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -81,14 +82,14 @@ function Suspects() {
             <Input
               onChange={handleInputChange}
               name="height"
-              placeholder="Height cms(required)"
+              placeholder="Height *(cms)"
             />
             <Input
               onChange={handleInputChange}
               name="weight"
-              placeholder="Weight kgs(required)"
+              placeholder="Weight *(kgs)"
             />
-            <label for="hairType">Hair type:</label>
+            <label for="hairType">Hair type *:</label>
             <select name="hairType" id="hairType">
               <option value="straight">Straight</option>
               <option value="wavy">Wavy</option>
@@ -96,7 +97,7 @@ function Suspects() {
               <option value="kinky">Kinky</option>
               onChange={handleInputChange}
             </select>
-            <label for="hairColour">Hair colour:</label>
+            <label for="hairColour">Hair colour *</label>
             <select name="hairColour" id="hairColour">
               <option value="black">Black</option>
               <option value="blonde">Blonde</option>
@@ -105,7 +106,7 @@ function Suspects() {
               <option value="white">White</option>
               onChange={handleInputChange}
             </select>
-            <label for="hairLength">Hair length:</label>
+            <label for="hairLength">Hair length *</label>
             <select name="hairLength" id="hairLength">
               <option value="short">Short</option>
               <option value="long">Long</option>
@@ -118,7 +119,7 @@ function Suspects() {
               <option value="no">No</option>
               onChange={handleInputChange}
             </select>
-            <label for="eyesColour">Eyes colour:</label>
+            <label for="eyesColour">Eyes colour</label>
             <select name="eyesColour" id="eyescolour">
               <option value="amber">Amber</option>
               <option value="blue">Blue</option>
@@ -129,13 +130,13 @@ function Suspects() {
               <option value="red">Red</option>
               onChange={handleInputChange}
             </select>{" "}
-            <label for="glasses">Glasses:</label>
+            <label for="glasses">Glasses</label>
             <select name="glasses" id="glasses">
               <option value="yes">Yes</option>
               <option value="no">No</option>
               onChange={handleInputChange}
             </select>
-            <label for="complexion">Complexion:</label>
+            <label for="complexion">Complexion *</label>
             <select name="complexion" id="complexion">
               <option value="extremelyfairskin">Extremely fair skin</option>
               <option value="fairskin">Fair skin</option>
@@ -145,27 +146,19 @@ function Suspects() {
               <option value="blackskin">Black skin</option>
               onChange={handleInputChange}
             </select>
-            <label for="scars">Scars:</label>
+            <label for="scars">Scars</label>
             <select name="scars" id="scars">
               <option value="yes">Yes</option>
               <option value="no">No</option>
               onChange={handleInputChange}
             </select>
-            <Input
-              onChange={handleInputChange}
-              name="tattoos"
-              placeholder="Tattoos yes/no (required)"
-            />
-            <label for="race">Race:</label>
-            <select name="race" id="race">
-              <option value="caucasian">Caucasian</option>
-              <option value="asian">Asian</option>
-              <option value="indian">Indian</option>
-              <option value="latino">Latino</option>
-              <option value="pacificislander">Pacific islander</option>
+            <label for="tattoos">Tattoos</label>
+            <select name="tattoos" id="tattos">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
               onChange={handleInputChange}
             </select>
-            <label for="earshape">Ear shape:</label>
+            <label for="earshape">Ear shape</label>
             <select name="earshape" id="earshape">
               <option value="attachedlobe">Attached lobe</option>
               <option value="broadlobe">Broad lobe</option>
@@ -176,7 +169,7 @@ function Suspects() {
               <option value="stickingout">Sticking out</option>onChange=
               {handleInputChange}
             </select>
-            <label for="eyebrowsshape">Eyebrows shape:</label>
+            <label for="eyebrowsshape">Eyebrows shape</label>
             <select name="eyebrowseshape" id="eyebrowseshape">
               <option value="straight">Straight</option>
               <option value="broadlobe">Broad lobe</option>
@@ -186,7 +179,8 @@ function Suspects() {
               <option value="upward">Upward</option>
               {handleInputChange}
             </select>
-            <label for="noseshape">Nose shape:</label>
+              
+            <label for="noseshape">Nose shape</label>
             <select name="noseshape" id="noseshape">
               <option value="droopy">Droppy</option>
               <option value="aquiline">Aquiline</option>
@@ -199,12 +193,24 @@ function Suspects() {
               <option value="funnel">Funnel</option>
               {handleInputChange}
             </select>
+            <label for="race">Race:</label>
+            <select name="race" id="race">
+              <option value="caucasian">Caucasian</option>
+              <option value="asian">Asian</option>
+              <option value="indian">Indian</option>
+              <option value="latino">Latino</option>
+              <option value="pacificislander">Pacific islander</option>
+              onChange={handleInputChange}
+            </select>
+            
+         
             <label for="teeth">Teeth missing:</label>
             <select name="teeth" id="teeth">
               <option value="Yes">Yes</option>
               <option value="no">No</option>
               {handleInputChange}
             </select>
+            
             <label for="wrinkles">Wrinkles:</label>
             <select name="wrinkles" id="wrinkles">
               <option value="Yes">Yes</option>
@@ -252,7 +258,9 @@ function Suspects() {
               <option value="no">No</option>
               {handleInputChange}
             </select>
-            <FormBtn onClick={handleFormSubmit}>Search suspects</FormBtn>
+            <FormBtn onClick={handleFormSubmit}>Search suspects
+            
+            </FormBtn>
           </form>
         </Col>
         <Col size="md-6 sm-12">
@@ -262,13 +270,13 @@ function Suspects() {
           {suspects.length ? (
             <List>
               {suspects.map((suspect) => (
-                <ListItem key={suspect.id}>
-                  <Link to={"/suspects/" + suspect.id}>
+                <ListItem key={suspect._id}>
+                  <Link to={"/suspects/" + suspect._id}>
                     <strong>
                       {suspect.name} by {suspect.image}
                     </strong>
                   </Link>
-                  <DeleteBtn onClick={() => deleteSuspect(suspect.id)} />
+                  <DeleteBtn onClick={() => deleteSuspect(suspect._id)} />
                 </ListItem>
               ))}
             </List>
