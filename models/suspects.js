@@ -28,9 +28,9 @@ const suspectSchema = new Schema({
   faceShape: { type: String, required: true },
   neck: { type: String, required: false },
   moustache: {type: String, required: false},
-  beard: { type: String, required: true },
-  goatee: { type: String, required: true },
-  sideburns: { type: String, required: true },
+  beard: { type: String, required: false },
+  goatee: { type: String, required: false },
+  sideburns: { type: String, required: false },
 
   image: {
     data: Buffer,

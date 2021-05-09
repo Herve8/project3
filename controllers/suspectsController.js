@@ -18,12 +18,12 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   update: function (req, res) {
-    db.suspects.findOneAndUpdate({ _id: req.params.id }, req.body)
+    db.suspects.findOneAndUpdate({ id: req.params.id }, req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   remove: function (req, res) {
-    db.suspects.findById({ _id: req.params.id })
+    db.suspects.findById({ id: req.params.id })
       .then((dbModel) => dbModel.remove())
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));

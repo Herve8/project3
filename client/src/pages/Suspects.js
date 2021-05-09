@@ -41,9 +41,9 @@ function Suspects() {
   // Then reload suspect from the database
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject._id && formObject.image) {
+    if (formObject.id && formObject.image) {
       API.saveSuspect({
-        _id: formObject._id,
+        id: formObject.id,
         image: formObject.image,
       
       })
@@ -206,14 +206,14 @@ function Suspects() {
          
             <label for="teeth">Teeth missing:</label>
             <select name="teeth" id="teeth">
-              <option value="Yes">Yes</option>
+              <option value="yes">Yes</option>
               <option value="no">No</option>
               {handleInputChange}
             </select>
             
             <label for="wrinkles">Wrinkles:</label>
             <select name="wrinkles" id="wrinkles">
-              <option value="Yes">Yes</option>
+              <option value="yes">Yes</option>
               <option value="no">No</option>
               {handleInputChange}
             </select>
@@ -242,19 +242,19 @@ function Suspects() {
             </select>
             <label for="beard">Beard:</label>
             <select name="beard" id="beard">
-              <option value="Yes">Yes</option>
+              <option value="yes">Yes</option>
               <option value="no">No</option>
               {handleInputChange}
             </select>
             <label for="goatee">Goatee:</label>
             <select name="goatee" id="goatee">
-              <option value="Yes">Yes</option>
+              <option value="yes">Yes</option>
               <option value="no">No</option>
               {handleInputChange}
             </select>
             <label for="sideburns">Side burns:</label>
             <select name="sideburns" id="sideburns">
-              <option value="Yes">Yes</option>
+              <option value="yes">Yes</option>
               <option value="no">No</option>
               {handleInputChange}
             </select>
@@ -269,14 +269,14 @@ function Suspects() {
           </Jumbotron>
           {suspects.length ? (
             <List>
-              {suspects.map((suspect) => (
-                <ListItem key={suspect._id}>
-                  <Link to={"/suspects/" + suspect._id}>
+              {suspects.map((suspects) => (
+                <ListItem key={suspects.image}>
+                  <Link to={"/suspects/" + suspects.id}>
                     <strong>
-                      {suspect.name} by {suspect.image}
+                      {suspects.image} by {suspects.image}
                     </strong>
                   </Link>
-                  <DeleteBtn onClick={() => deleteSuspect(suspect._id)} />
+                  <DeleteBtn onClick={() => deleteSuspect(suspects.image)} />
                 </ListItem>
               ))}
             </List>

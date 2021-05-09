@@ -9,12 +9,12 @@ function Detail(props) {
 
   // When this component mounts, grab the suspect with the _id of props.match.params.id
   // e.g. localhost:3000/suspects/599dcb67f0f16317844583fc
-  const { _id } = useParams();
+  const { id } = useParams();
   useEffect(() => {
-    API.getSuspect(_id)
+    API.getSuspect(id)
       .then((res) => setSuspect(res.data))
       .catch((err) => console.log(err));
-  }, [_id]);
+  }, [id]);
 
   return (
     <Container fluid>
