@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const suspectSchema = new Schema({
-  _id: { type: String, required: true },
+  id: { type: String, required: true },
   name: { type: String, required: true },
   age: { type: Number, required: true },
   sex: { type: String, required: true },

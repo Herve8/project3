@@ -104,6 +104,7 @@ function Suspects() {
               <option value="brown">Brown</option>
               <option value="grey">grey</option>
               <option value="white">White</option>
+              <option value="blondeblack">Blonde & black</option>
               onChange={handleInputChange}
             </select>
             <label for="hairLength">Hair length *</label>
@@ -172,7 +173,6 @@ function Suspects() {
             <label for="eyebrowsshape">Eyebrows shape</label>
             <select name="eyebrowseshape" id="eyebrowseshape">
               <option value="straight">Straight</option>
-              <option value="broadlobe">Broad lobe</option>
               <option value="curved">Curved</option>
               <option value="softarch">Soft arch</option>
               <option value="higharch">high arch</option>
