@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
+import "../layouts/suspect.css"
 
 function Suspects() {
   // Setting our component's initial state
@@ -68,17 +69,23 @@ function Suspects() {
           </Jumbotron>
           <form>
             
-            <label for="age">Age *:
-            onChange={handleInputChange}
-            placeholder="Age(required)"
-            </label>
+           
+            <Input
+              onChange={handleInputChange}
+              name="age"
+              placeholder="Age *"
+            />
             
+          
             <label for="sex">Sex *</label>
             <select name="sex" id="sex">
               <option value="male">Male</option>
               <option value="female">Female</option>
               onChange={handleInputChange}
             </select>
+           
+
+           
             <Input
               onChange={handleInputChange}
               name="height"
@@ -89,6 +96,10 @@ function Suspects() {
               name="weight"
               placeholder="Weight *(kgs)"
             />
+           
+
+           <div class="flex space-x-4 ..">
+             <div>
             <label for="hairType">Hair type *:</label>
             <select name="hairType" id="hairType">
               <option value="straight">Straight</option>
@@ -97,6 +108,8 @@ function Suspects() {
               <option value="kinky">Kinky</option>
               onChange={handleInputChange}
             </select>
+            </div>
+            <div>
             <label for="hairColour">Hair colour *</label>
             <select name="hairColour" id="hairColour">
               <option value="black">Black</option>
@@ -107,6 +120,8 @@ function Suspects() {
               <option value="blondeblack">Blonde & black</option>
               onChange={handleInputChange}
             </select>
+            </div>
+            <div>
             <label for="hairLength">Hair length *</label>
             <select name="hairLength" id="hairLength">
               <option value="short">Short</option>
@@ -114,12 +129,17 @@ function Suspects() {
               <option value="medium">Medium</option>
               onChange={handleInputChange}
             </select>
+            </div>
+            <div>
             <label for="ponyTail">Pony tail:</label>
             <select name="ponyTail" id="ponyTail">
               <option value="yes">Yes</option>
               <option value="no">No</option>
               onChange={handleInputChange}
             </select>
+            </div>
+            </div>
+            
             <label for="eyesColour">Eyes colour</label>
             <select name="eyesColour" id="eyescolour">
               <option value="amber">Amber</option>
@@ -137,6 +157,9 @@ function Suspects() {
               <option value="no">No</option>
               onChange={handleInputChange}
             </select>
+           
+
+            
             <label for="complexion">Complexion *</label>
             <select name="complexion" id="complexion">
               <option value="extremelyfairskin">Extremely fair skin</option>
@@ -159,6 +182,9 @@ function Suspects() {
               <option value="no">No</option>
               onChange={handleInputChange}
             </select>
+           
+
+           
             <label for="earshape">Ear shape</label>
             <select name="earshape" id="earshape">
               <option value="attachedlobe">Attached lobe</option>
@@ -170,6 +196,8 @@ function Suspects() {
               <option value="stickingout">Sticking out</option>onChange=
               {handleInputChange}
             </select>
+            
+
             <label for="eyebrowsshape">Eyebrows shape</label>
             <select name="eyebrowseshape" id="eyebrowseshape">
               <option value="straight">Straight</option>
@@ -193,6 +221,9 @@ function Suspects() {
               <option value="funnel">Funnel</option>
               {handleInputChange}
             </select>
+           
+
+            
             <label for="race">Race:</label>
             <select name="race" id="race">
               <option value="caucasian">Caucasian</option>
@@ -227,6 +258,9 @@ function Suspects() {
               <option value="heartshape">Heart shape</option>
               {handleInputChange}
             </select>
+          
+
+            
             <label for="neck">Neck:</label>
             <select name="neck" id="neck">
               <option value="short">Short</option>
@@ -258,8 +292,14 @@ function Suspects() {
               <option value="no">No</option>
               {handleInputChange}
             </select>
-            <FormBtn onClick={handleFormSubmit}>Search suspects
+           
+
+            <FormBtn onClick={handleFormSubmit
             
+
+            }>Search suspects
+
+      
             </FormBtn>
           </form>
         </Col>

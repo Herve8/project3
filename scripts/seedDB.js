@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+const suspectSeed = require("../models/suspects");
 
 // This file empties the Suspects collection and inserts the suspects below
 
-mongoose.connect(process.env.MONGODB_URI || "mongoose://localhost:27017/suspects");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/suspects");
+
+
 
 const suspectSeed = [
   {
@@ -52,7 +55,7 @@ const suspectSeed = [
     "glasses": "yes",
     "complexion": "fair skin",
     "scars": "no",
-    "tattoos": no,
+    "tattoos": "no",
     "earShape": "attached lobe",
     "eyebrowsShape": "soft arch",
     "noseShape": "aquiline",
@@ -761,7 +764,7 @@ const suspectSeed = [
   "hairType": "straight", 
   "hairColour": "blonde", 
   "hairLength": "short",   
-  "ponyTail": no,
+  "ponyTail": "no",
   "eyesColour":"brown",
   "glasses": "no",
   "complexion": "extremely fair skin",
@@ -1048,8 +1051,11 @@ const suspectSeed = [
     "sideburns": "yes",
     "image": "/img/35-driken-miller",
   },
- 
+
+  
 ];
+ 
+//];
 
 const done = 0;
 for (var i = 0; i <  suspects.length; i++)
@@ -1066,6 +1072,7 @@ function exit() {
 }
 
 
+
 db.suspects.remove({})
   .then(() => db.suspects.collection.insertMany(suspectSeed))
   .then((data) => {
@@ -1076,3 +1083,4 @@ db.suspects.remove({})
     console.error(err);
     process.exit(1);
   });
+  
