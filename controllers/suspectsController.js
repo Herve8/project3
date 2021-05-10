@@ -1,29 +1,29 @@
-const db = require("../models");
+const Suspect = require("../models/suspects");
 
 // Defining methods for the suspectsController
 module.exports = {
   findAll: function (req, res) {
-    db.suspects.find(req.query)
+    Suspect.find(req.query)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   findById: function (req, res) {
-    db.suspects.findById(req.params.id)
+    Suspect.findById(req.params.id)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   create: function (req, res) {
-    db.suspects.create(req.body)
+    Suspect.create(req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   update: function (req, res) {
-    db.suspects.findOneAndUpdate({ id: req.params.id }, req.body)
+    Suspect.findOneAndUpdate({ id: req.params.id }, req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   remove: function (req, res) {
-    db.suspects.findById({ id: req.params.id })
+    Suspect.findById({ id: req.params.id })
       .then((dbModel) => dbModel.remove())
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
