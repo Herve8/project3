@@ -6,7 +6,7 @@ const Suspect = require("../models/suspects");
 
 mongoose.connect(
   //process.env.MONGODB_URI || "mongodb://localhost/suspects",
-  process.env.MONGODB_URI || "mongodb+srv://root:0KjvVkM0a1DI2lo0@cluster0.1t27v.mongodb.net/suspects?retryWrites=true&w=majority",
+  process.env.MONGODB_URI || "mongodb+srv://root:root12345@cluster0.1t27v.mongodb.net/myFirstDatabase?retryWrites=true&w=majoritygit",
   { useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true,
