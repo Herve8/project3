@@ -17,8 +17,9 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/suspects",
+  //process.env.MONGODB_URI || "mongodb://localhost/suspects",
   //process.env.MONGODB_URI || "mongodb+srv://root:root12345@cluster0.1t27v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "mongodb+srv://root:root12345@cluster0.1t27v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" || 'mongodb://localhost/suspects', 
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

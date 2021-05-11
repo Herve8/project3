@@ -5,8 +5,9 @@ const Suspect = require("../models/suspects");
 // This file empties the Suspects collection and inserts the suspects below
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/suspects",
+  //process.env.MONGODB_URI || "mongodb://localhost/suspects",
   //process.env.MONGODB_URI || "mongodb+srv://root:root12345@cluster0.1t27v.mongodb.net/myFirstDatabase?retryWrites=true&w=majoritygit",
+  "mongodb+srv://root:root12345@cluster0.1t27v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" || 'mongodb://localhost/suspects',
   { useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true,
