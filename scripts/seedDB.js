@@ -5,7 +5,7 @@ const Suspect = require("../models/suspects");
 // This file empties the Suspects collection and inserts the suspects below
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost:27017/suspects",
+  process.env.MONGODB_URI || "mongodb://localhost/suspects",
   { useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true,
